@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: nginx
+    development: test
+  name: nginx
+  namespace: dev-vinh
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nginx
+  template:
+    metadata:
+      labels:
+        app: nginx
+        # comment this label out for error
+        development: test
+    spec:
+      containers:
+      - image: nginx
+        name: nginx
+
